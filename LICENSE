@@ -1,21 +1,239 @@
-MIT License
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compreender o TDAH | informação e apoio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+        }
 
-Copyright (c) 2026 anagrandobueno-prog
+        body {
+            background: linear-gradient(145deg, #eef5fc 0%, #d9e9f5 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+.
+        /* container principal */
+        .site-wrapper {
+            max-width: 1280px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(2px);
+            border-radius: 2.5rem;
+            box-shadow: 0 20px 40px -10px rgba(0, 35, 60, 0.25);
+            padding: 2rem 2rem 1.5rem 2rem;
+        }
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+        /* cabeçalho */
+        .titulo-principal {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+        .titulo-principal h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: #113946;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #0a2f3f, #1e5f7a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            border-bottom: 4px solid #78b9d8;
+        }
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+        .titulo-principal p {
+            font-size: 1.2rem;
+            color: #2c536e;
+            margin-top: 0.6rem;
+            font-style: italic;
+        }
+
+        /* cada bloco (imagem + descrição) */
+        .secao {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 2rem;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 6px 18px rgba(27, 65, 89, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .secao:hover {
+            transform: scale(1.01);
+            background: rgba(255, 255, 255, 0.85);
+        }
+
+        /* imagem sempre à esquerda, texto à direita */
+        .img-wrapper {
+            flex: 1 1 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            border-radius: 1.8rem;
+            box-shadow: 0 18px 25px -8px rgba(0, 40, 55, 0.3);
+            border: 2px solid white;
+            transition: all 0.3s;
+        }
+
+        .img-wrapper img:hover {
+            box-shadow: 0 25px 35px -8px #0a3343;
+        }
+
+        .descricao-wrapper {
+            flex: 1 1 55%;
+            padding: 1rem 0.5rem;
+        }
+
+        .descricao-wrapper h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #0b3b4f;
+            margin-bottom: 1.2rem;
+            border-left: 8px solid #58a9c2;
+            padding-left: 1rem;
+        }
+
+        .descricao-wrapper p {
+            font-size: 1.22rem;
+            line-height: 1.6;
+            color: #1c3f50;
+            background: rgba(245, 250, 255, 0.7);
+            padding: 1.5rem;
+            border-radius: 1.5rem;
+            backdrop-filter: blur(2px);
+            margin-bottom: 0.5rem;
+            text-align: justify;
+        }
+
+        /* rodapé simples */
+        footer {
+            text-align: center;
+            padding: 2rem 0.5rem 0.5rem;
+            color: #3a5f73;
+            font-size: 1rem;
+            border-top: 1px dashed #84b6cb;
+            margin-top: 1.5rem;
+        }
+
+        footer a {
+            color: #1e5f7a;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* adaptação para telas menores */
+        @media screen and (max-width: 850px) {
+            .secao {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 1.8rem 1.2rem;
+                margin-bottom: 2.8rem;
+            }
+
+            .img-wrapper img {
+                max-width: 100%;
+            }
+
+            .descricao-wrapper h2 {
+                font-size: 1.8rem;
+                text-align: center;
+                border-left: none;
+                border-bottom: 4px solid #58a9c2;
+                padding-bottom: 0.5rem;
+            }
+
+            .titulo-principal h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            body { padding: 0.8rem; }
+            .site-wrapper { padding: 1rem; }
+            .descricao-wrapper p { font-size: 1.1rem; padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="site-wrapper">
+        <header class="titulo-principal">
+            <h1>TDAH: além da desatenção</h1>
+            <p>▸ informação baseada em evidências para compreender o transtorno ◂</p>
+        </header>
+
+        <main>
+            <!-- SECÃO 01: Imagem esquerda / descrição direita -->
+            <section class="secao">
+                <div class="img-wrapper">
+                    <img src="https://picsum.photos/id/83/400/300?grayscale&seed=tdah1" 
+                         alt="Representação visual do cérebro e conexões neurais" 
+                         loading="lazy">
+                </div>
+                <div class="descricao-wrapper">
+                    <h2>🧠 O que é TDAH?</h2>
+                    <p>O Transtorno do Déficit de Atenção com Hiperatividade (TDAH) é uma condição neurobiológica, com forte participação genética, que se manifesta na infância e frequentemente persiste na vida adulta. Caracteriza-se por um padrão persistente de desatenção, hiperatividade e impulsividade, que interfere no funcionamento e no desenvolvimento. Não se trata de falta de inteligência ou preguiça — o cérebro da pessoa com TDAH processa informações e regula a atenção de forma diferente.</p>
+                </div>
+            </section>
+
+            <!-- SECÃO 02: Imagem esquerda / descrição direita (conforme solicitado) -->
+            <section class="secao">
+                <div class="img-wrapper">
+                    <img src="https://picsum.photos/id/152/400/300?seed=tdah2" 
+                         alt="Pessoa refletindo sobre múltiplas tarefas e foco" 
+                         loading="lazy">
+                </div>
+                <div class="descricao-wrapper">
+                    <h2>⚡ Sintomas comuns</h2>
+                    <p>Os sintomas dividem-se em duas dimensões principais: <strong>desatenção</strong> (dificuldade em manter o foco, esquecimentos frequentes, perder objetos, não seguir instruções) e <strong>hiperatividade/impulsividade</strong> (inquietação, dificuldade em permanecer sentado, falar excessivamente, interromper os outros). Em adultos, a hiperatividade pode se manifestar como sensação interna de nervosismo ou dificuldade com relaxamento. Cada pessoa vive o TDAH de forma única, e os sintomas podem variar conforme o ambiente.</p>
+                </div>
+            </section>
+
+            <!-- SECÃO 03: Imagem esquerda / descrição direita -->
+            <section class="secao">
+                <div class="img-wrapper">
+                    <img src="https://picsum.photos/id/26/400/300?seed=tdah3" 
+                         alt="Apoio terapêutico e organização" 
+                         loading="lazy">
+                </div>
+                <div class="descricao-wrapper">
+                    <h2>🌱 Tratamento e suporte</h2>
+                    <p>O manejo do TDAH é multimodal e personalizado: inclui psicoeducação, terapia cognitivo-comportamental, acompanhamento psiquiátrico (quando indicado) e suporte educacional. Estratégias como organização ambiental, uso de lembretes, divisão de tarefas e prática de exercícios físicos também trazem benefícios significativos. Com o suporte certo, pessoas com TDAH podem desenvolver todo o seu potencial e transformar desafios em pontos fortes. O primeiro passo é buscar avaliação com profissional especializado.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>✨ conteúdo informativo sobre <strong>TDAH</strong> — imagem e descrição lado a lado, conforme pedido ✨</p>
+            <p>📚 fontes: Associação Brasileira do Déficit de Atenção (ABDA) / diretrizes da OMS</p>
+            <p>🌐 imagens: <a href="https://picsum.photos" target="_blank" rel="noopener">Lorem Picsum</a> (licença livre) • código livre para uso</p>
+        </footer>
+    </div>
+</body>
+</html>
